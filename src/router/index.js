@@ -55,7 +55,8 @@ export const constantRoutes = [
     }]
   },
 
-  {
+  // 删除不需要的路由
+  /* {
     path: '/example',
     component: Layout,
     redirect: '/example/table',
@@ -76,7 +77,6 @@ export const constantRoutes = [
       }
     ]
   },
-
   {
     path: '/form',
     component: Layout,
@@ -89,7 +89,6 @@ export const constantRoutes = [
       }
     ]
   },
-
   {
     path: '/nested',
     component: Layout,
@@ -148,7 +147,6 @@ export const constantRoutes = [
       }
     ]
   },
-
   {
     path: 'external-link',
     component: Layout,
@@ -158,7 +156,7 @@ export const constantRoutes = [
         meta: { title: 'External Link', icon: 'link' }
       }
     ]
-  },
+  }, */
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
