@@ -4,9 +4,9 @@ import { resetRouter } from '@/router'
 
 const getDefaultState = () => {
   return {
-    token: getToken(),
-    name: '',
-    avatar: ''
+    token: getToken(), //登陆后的token存储
+    name: '',          //获取用户信息后存储用户的名称
+    avatar: ''         //获取用户信息后存储用户的头像
   }
 }
 
@@ -16,14 +16,14 @@ const mutations = {
   RESET_STATE: (state) => {
     Object.assign(state, getDefaultState())
   },
+  // 登陆后设置用户token  存储到state
   SET_TOKEN: (state, token) => {
     state.token = token
   },
-  SET_NAME: (state, name) => {
-    state.name = name
-  },
-  SET_AVATAR: (state, avatar) => {
-    state.avatar = avatar
+  // 获取用户信息后设置用户信息
+  SET_USERINFO(state,userInfo){
+    state.name=userInfo.name
+    state.avatar=userInfo.avatar
   }
 }
 
@@ -53,10 +53,10 @@ const actions = {
           return reject('Verification failed, please Login again.')
         }
 
-        const { name, avatar } = data
-
-        commit('SET_NAME', name)
-        commit('SET_AVATAR', avatar)
+        commit('SET_USERINFO',data)
+        // const { name, avatar } = data
+        // commit('SET_NAME', name)
+        // commit('SET_AVATAR', avatar)
         resolve(data)
       }).catch(error => {
         reject(error)
@@ -69,7 +69,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       logout(state.token).then(() => {
         removeToken() // must remove  token  first
-        resetRouter()
+        resetRouter() //重新设置路由
         commit('RESET_STATE')
         resolve()
       }).catch(error => {
