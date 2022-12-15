@@ -15,6 +15,8 @@ import router from './router'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+import * as API from "@/api/index";
+
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -34,6 +36,8 @@ Vue.use(ElementUI, { locale })
 // Vue.use(ElementUI)
 
 Vue.config.productionTip = false
+// 把所有的接口请求函数最终整体的对象挂到vue原型上，以便在每个组件当中去使用
+Vue.prototype.$API = API
 
 new Vue({
   el: '#app',
