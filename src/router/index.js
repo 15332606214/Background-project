@@ -73,7 +73,7 @@ export const constantRoutes = [
         path:'attr/list',
         component:()=>import('@/views/Product/attr/List'),
         name:'Attr',
-        meta:{title:'属性管理'}
+        meta:{title:'平台属性管理'}
       },
       {
         path:'sku/list',
