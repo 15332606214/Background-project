@@ -2,6 +2,7 @@
 // 相当于引入并把这个对象赋值给trademark，然后暴露trademark
 export { default as trademark } from './product/trademark'
 export { default as attr } from './product/attr'
+export { default as category } from './product/category'
 // export * as user from './user'
 // 最终从index.js暴露出去的就是
 // {
